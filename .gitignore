@@ -1,0 +1,44 @@
+# Compiled class files
+*.class
+
+# Packages
+*.jar
+*.war
+*.ear
+
+# Maven
+/target/
+/pom.xml.user
+
+# Eclipse files
+.project
+.classpath
+.settings/
+.metadata/
+.recommenders/
+*.launch
+bin/
+
+# IntelliJ IDEA
+/.idea/
+*.iml
+/out/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage
+jacoco.exec
+
+# Other
+*.swp
+*~
