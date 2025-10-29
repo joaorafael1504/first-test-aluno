@@ -6,7 +6,7 @@ public class Aluno {
     private CursosConcluidos cursosConcluidos;
     private CursosLiberados cursosLiberados;
 
-    public Aluno(String plano) {
+    public Aluno(String nome, String plano) {
         this.plano = Plano.fromLabel(plano);
         this.mediaFinal = Media.of(0.0);
         this.cursosConcluidos = CursosConcluidos.of(0);
