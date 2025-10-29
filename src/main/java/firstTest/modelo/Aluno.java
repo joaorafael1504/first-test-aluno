@@ -1,41 +1,41 @@
 package firstTest.modelo;
 
 public class Aluno {
-    private String plano;
-    private double mediaFinal;
-    private int cursosConcluidos;
-    private int cursosLiberados;
+    private Plano plano;
+    private Media mediaFinal;
+    private CursosConcluidos cursosConcluidos;
+    private CursosLiberados cursosLiberados;
 
-    public Aluno(String nome, String plano) {
-        this.plano = plano;
-        this.mediaFinal = 0.0;
-        this.cursosConcluidos = 0;
-        this.cursosLiberados = 0;
+    public Aluno(String plano) {
+        this.plano = Plano.fromLabel(plano);
+        this.mediaFinal = Media.of(0.0);
+        this.cursosConcluidos = CursosConcluidos.of(0);
+        this.cursosLiberados = CursosLiberados.of(0);
     }
 
     public void setMediaFinal(double mediaFinal) {
-        this.mediaFinal = mediaFinal;
+        this.mediaFinal = Media.of(mediaFinal);
     }
 
     public void setCursosConcluidos(int cursosConcluidos) {
-        this.cursosConcluidos = cursosConcluidos;
+        this.cursosConcluidos = CursosConcluidos.of(cursosConcluidos);
     }
 
     public int liberarCursos() {
-        if (mediaFinal >= 7 && cursosLiberados <= 0) {
-            cursosLiberados = 3;
+        if (this.mediaFinal.isAtLeast(7.0) && this.cursosLiberados.isZero()) {
+            this.cursosLiberados = CursosLiberados.of(3);
         }
-        return cursosLiberados;
+        return this.cursosLiberados.value();
     }
 
     public int cursosLiberados() {
-        return cursosLiberados;
+        return this.cursosLiberados.value();
     }
 
     public String verificarPlano() {
-        if ("Básico".equals(plano) && cursosConcluidos >= 12 && mediaFinal >= 7) {
-            plano = "Premium";
+        if (this.plano == Plano.BASICO && this.cursosConcluidos.isAtLeast(12) && this.mediaFinal.isAtLeast(7.0)) {
+            this.plano = Plano.PREMIUM;
         }
-        return plano;
+        return this.plano.asLabel();
     }
 }
