@@ -1,0 +1,13 @@
+package aluno_ac2.ac2_ca;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Ac2CaApplication { // Sem @Controller, sem métodos de endpoint
+
+    public static void main(String[] args) {
+        SpringApplication.run(Ac2CaApplication.class, args);
+    }
+
+}
