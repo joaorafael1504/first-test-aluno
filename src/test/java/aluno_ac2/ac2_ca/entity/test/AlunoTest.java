@@ -100,4 +100,21 @@ class AlunoTest {
         assertEquals("Básico", novoPlano);
         assertEquals("Básico", aluno.getPlano().asLabel());
     }
+    
+    @Test
+    void testVerificarPlanoSemUpgradePorPlanoNaoBasico() {
+        // 1. Cenário (Given)
+        // Aluno já tem plano Premium (não é BÁSICO), mas atende outras condições
+        Aluno aluno = new Aluno("Fernando", "fernando@email.com", "Premium");
+        aluno.setMediaFinal(8.0);
+        aluno.setCursosConcluidos(15);
+        
+        // 2. Ação (When)
+        String novoPlano = aluno.verificarPlano();
+
+        // 3. Verificação (Then)
+        // Deve manter o plano Premium, não fazer upgrade novamente
+        assertEquals("Premium", novoPlano);
+        assertEquals("Premium", aluno.getPlano().asLabel());
+    }
 }
