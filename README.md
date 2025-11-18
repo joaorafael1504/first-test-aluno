@@ -1,25 +1,41 @@
 # First Test Aluno
 
-Projeto acadêmico em **Java** utilizando **Maven**, **JUnit** e **JaCoCo**, desenvolvido com base na metodologia **TDD (Test Driven Development)**.
+Projeto acadêmico em **Java** utilizando **Maven**, **JUnit**, **Mockito** e **JaCoCo**, desenvolvido seguindo a abordagem **TDD (Test Driven Development)**.  
+O projeto evoluiu para uma arquitetura em camadas, contemplando **Entity**, **Repository**, **Service** e **Controller**, todas com seus respectivos testes unitários.
 
 ---
 
-##  Funcionalidades
+## 🎯 Funcionalidades do Projeto
 
-* Estruturação do projeto com **Maven**.
-* Escrita de casos de teste com **JUnit**.
-* Relatórios de execução de testes com **Surefire Reports**.
-* Relatórios de cobertura de código com **JaCoCo**.
-* Prática de **TDD**: escrever testes, implementar código e refatorar mantendo cobertura.
+* Estrutura modular em camadas:  
+  - **Entity** (representação de dados)  
+  - **Repository** (simulação de persistência)  
+  - **Service** (regras de negócio)  
+  - **Controller** (ponto de acesso da aplicação)
+
+* Testes unitários para cada camada:
+  - Testes de entidade
+  - Testes de repositório
+  - Testes de service com **Mockito**
+  - Testes de controller
+
+* Relatórios automáticos de:
+  - **Execução de testes** (Surefire)
+  - **Cobertura de código** (JaCoCo)
+
+* Prática completa de **TDD**:
+  - Criar testes → Implementar código → Refatorar mantendo cobertura.
 
 ---
 
-##  Tecnologias Utilizadas
+## 🛠 Tecnologias Utilizadas
 
 * **Java 17+**
 * **Maven**
 * **JUnit 5**
+* **Mockito**
 * **JaCoCo**
+* **Surefire Plugin**
 
 ---
 
@@ -54,30 +70,39 @@ Os relatórios de execução estarão disponíveis em:
 
 ---
 
-##  Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 ```plaintext
 first-test-aluno/
  ├── src/
- │   ├── main/java/...   # Código fonte principal
- │   └── test/java/...   # Casos de teste com JUnit
- ├── target/             # Arquivos compilados e relatórios
- ├── pom.xml             # Configuração Maven do projeto
+ │   ├── main/java/com/aluno/
+ │   │   ├── entity/        # Entidades do sistema
+ │   │   ├── repository/    # Repositórios simulando persistência
+ │   │   ├── service/       # Regras de negócio
+ │   │   └── controller/    # Classe responsável pelo fluxo principal
+ │   └── test/java/com/aluno/
+ │       ├── entity/        # Testes das entidades
+ │       ├── repository/    # Testes do repositório
+ │       ├── service/       # Testes usando Mockito
+ │       └── controller/    # Testes do controller
+ ├── target/                 # Artefatos gerados
+ └── pom.xml                 # Configurações Maven
 ```
 
 ---
 
-##  Metodologia TDD
+## 🧪 Metodologia TDD
 
-* **Passo 1:** Criar casos de teste que inicialmente falham.
-* **Passo 2:** Implementar o código mínimo necessário para os testes passarem.
-* **Passo 3:** Refatorar o código, garantindo que os testes continuem passando.
+* **Passo 1:** Criar o teste que representa a funcionalidade desejada.
+* **Passo 2:** Verificar o teste falhar (Red).
+* **Passo 3:** Implementar o código mínimo necessário para fazê-lo passar (Green).
+* **Passo 4:** Refatorar mantendo todos os testes passando (Refactor).
 
 Relatórios de cobertura (**JaCoCo**) e execução de testes (**JUnit**) foram utilizados para validar cada etapa.
 
 ---
 
-##  User Story
+## 📘 User Story
 
 **Como** um aluno assinante básico
 **Quero** liberar mais 3 cursos ao concluir um curso com média acima de 7,0
@@ -85,9 +110,9 @@ Relatórios de cobertura (**JaCoCo**) e execução de testes (**JUnit**) foram u
 
 ---
 
-##  BDDs
+## 🧪 BDDs
 
-### BDD 1 – Cenário de Sucesso
+### ✔️ BDD 1 – Cenário de Sucesso
 
 **Dado** que sou um aluno assinante básico
 **E** finalizei um curso com média 8
@@ -96,7 +121,7 @@ Relatórios de cobertura (**JaCoCo**) e execução de testes (**JUnit**) foram u
 
 ---
 
-### BDD 2 – Cenário de Fracasso
+### ❌ BDD 2 – Cenário de Fracasso
 
 **Dado** que sou um aluno assinante básico
 **E** finalizei um curso com média 6,5
@@ -105,7 +130,7 @@ Relatórios de cobertura (**JaCoCo**) e execução de testes (**JUnit**) foram u
 
 ---
 
-### BDD 3 – Cenário de Upgrade para Premium
+### 🔄 BDD 3 – Cenário de Upgrade para Premium
 
 **Dado** que sou um aluno assinante básico
 **E** concluí mais de 12 cursos com média acima de 7,0
@@ -114,7 +139,7 @@ Relatórios de cobertura (**JaCoCo**) e execução de testes (**JUnit**) foram u
 
 ---
 
-### BDD 4 – Cenário de Prevenção de Benefício Duplicado
+### 🛑 BDD 4 – Cenário de Prevenção de Benefício Duplicado
 
 **Dado** que o aluno concluiu um curso com média 8,5
 **E** já recebeu 3 cursos adicionais por esse resultado
@@ -123,7 +148,7 @@ Relatórios de cobertura (**JaCoCo**) e execução de testes (**JUnit**) foram u
 
 ---
 
-##  Autores
+## 👨‍💻 Autores
 
 Desenvolvido por:
 
@@ -134,7 +159,7 @@ Desenvolvido por:
 
 ---
 
-##  Licença
+## 📜 Licença
 
 Este projeto está sob a licença MIT.
 Sinta-se livre para contribuir! 
