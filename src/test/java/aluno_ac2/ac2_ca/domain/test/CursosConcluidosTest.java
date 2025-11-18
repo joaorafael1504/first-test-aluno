@@ -14,7 +14,6 @@ class CursosConcluidosTest {
 
     @Test
     void testCriacaoInvalida() {
-        // Deve lançar exceção se for negativo
         assertThrows(IllegalArgumentException.class, () -> {
             CursosConcluidos.of(-1);
         });
@@ -23,7 +22,6 @@ class CursosConcluidosTest {
     @Test
     void testIsAtLeast() {
         CursosConcluidos cursos = CursosConcluidos.of(12);
-        
         assertTrue(cursos.isAtLeast(10));
         assertTrue(cursos.isAtLeast(12));
         assertFalse(cursos.isAtLeast(13));
@@ -31,7 +29,6 @@ class CursosConcluidosTest {
     
     @Test
     void testIncrement() {
-        // Testa a linha vermelha do 'increment()'
         CursosConcluidos cursos = CursosConcluidos.of(10);
         CursosConcluidos maisUm = cursos.increment();
         assertEquals(11, maisUm.value());
@@ -39,7 +36,6 @@ class CursosConcluidosTest {
 
     @Test
     void testHashCodeEToString() {
-        // Testa as linhas vermelhas de hashCode() e toString()
         CursosConcluidos cursos = CursosConcluidos.of(10);
         assertNotNull(cursos.hashCode());
         assertEquals("10", cursos.toString());
@@ -47,7 +43,6 @@ class CursosConcluidosTest {
 
     @Test
     void testEqualsEdgeCases() {
-        // Testa os caminhos amarelos (branches) do 'equals()'
         CursosConcluidos cursos = CursosConcluidos.of(10);
         assertTrue(cursos.equals(CursosConcluidos.of(10)));
         assertFalse(cursos.equals(null));
@@ -58,8 +53,6 @@ class CursosConcluidosTest {
     @Test
     void testEqualsComMesmaInstancia() {
         CursosConcluidos cursos = CursosConcluidos.of(5);
-        
-        // Testa a branch 'this == o'
         assertTrue(cursos.equals(cursos)); 
     }
 }

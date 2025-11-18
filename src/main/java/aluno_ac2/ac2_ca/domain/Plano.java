@@ -13,7 +13,6 @@ public enum Plano {
             case "Basico":
                 return BASICO;
             default:
-                // fallback: try to match ignoring case
                 if (label.equalsIgnoreCase("premium")) return PREMIUM;
                 return BASICO;
         }

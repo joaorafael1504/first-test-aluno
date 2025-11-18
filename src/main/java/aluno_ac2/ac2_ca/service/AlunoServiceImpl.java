@@ -17,7 +17,7 @@ public class AlunoServiceImpl implements AlunoService {
 
     private Aluno getAluno(Long id) {
         return alunoRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Aluno não encontrado")); // Crie uma exceção melhor
+            .orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
     }
 
     @Override
@@ -46,7 +46,7 @@ public class AlunoServiceImpl implements AlunoService {
     @Transactional
     public AlunoResponseDTO atualizarMedia(Long id, UpdateMediaDTO dto) {
         Aluno aluno = getAluno(id);
-        aluno.setMediaFinal(dto.media()); // Lógica de domínio
+        aluno.setMediaFinal(dto.media());
         return AlunoResponseDTO.fromEntity(alunoRepository.save(aluno));
     }
 
@@ -54,7 +54,7 @@ public class AlunoServiceImpl implements AlunoService {
     @Transactional
     public AlunoResponseDTO verificarPlano(Long id) {
         Aluno aluno = getAluno(id);
-        aluno.verificarPlano(); // Lógica de domínio
+        aluno.verificarPlano();
         return AlunoResponseDTO.fromEntity(alunoRepository.save(aluno));
     }
 
@@ -62,7 +62,7 @@ public class AlunoServiceImpl implements AlunoService {
     @Transactional
     public AlunoResponseDTO liberarCursos(Long id) {
         Aluno aluno = getAluno(id);
-        aluno.liberarCursos(); // Lógica de domínio
+        aluno.liberarCursos();
         return AlunoResponseDTO.fromEntity(alunoRepository.save(aluno));
     }
 }

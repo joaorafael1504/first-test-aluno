@@ -3,12 +3,12 @@ package aluno_ac2.ac2_ca.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import aluno_ac2.ac2_ca.domain.*; // Importa nosso novo pacote de domínio
+import aluno_ac2.ac2_ca.domain.*;
 
 @Entity
 @Table(name = "alunos")
 @Getter
-@NoArgsConstructor // Obrigatório para o JPA
+@NoArgsConstructor
 public class Aluno {
 
     @Id
@@ -18,13 +18,12 @@ public class Aluno {
     private String nome;
     private String email;
 
-    // O JPA usará os conversores para estes campos
     private Plano plano;
     private Media mediaFinal;
     private CursosConcluidos cursosConcluidos;
     private CursosLiberados cursosLiberados;
-
-    // Construtor de Domínio
+    
+    
     public Aluno(String nome, String email, String planoLabel) {
         this.nome = nome;
         this.email = email;
@@ -34,7 +33,7 @@ public class Aluno {
         this.cursosLiberados = CursosLiberados.of(0);
     }
 
-    // --- Métodos de Negócio (Lógica de Domínio) ---
+    
     public void setMediaFinal(double mediaFinal) {
         this.mediaFinal = Media.of(mediaFinal);
     }

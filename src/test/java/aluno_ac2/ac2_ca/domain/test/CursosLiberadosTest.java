@@ -14,7 +14,6 @@ class CursosLiberadosTest {
 
     @Test
     void testCriacaoInvalida() {
-        // Deve lançar exceção se for negativo
         assertThrows(IllegalArgumentException.class, () -> {
             CursosLiberados.of(-1);
         });
@@ -24,14 +23,12 @@ class CursosLiberadosTest {
     void testIsZero() {
         CursosLiberados cursosZero = CursosLiberados.of(0);
         CursosLiberados cursosNaoZero = CursosLiberados.of(3);
-        
         assertTrue(cursosZero.isZero());
         assertFalse(cursosNaoZero.isZero());
     }
     
     @Test
     void testAdd() {
-        // Testa a linha vermelha do 'add()'
         CursosLiberados cursos = CursosLiberados.of(5);
         CursosLiberados maisDois = cursos.add(2);
         assertEquals(7, maisDois.value());
@@ -39,14 +36,12 @@ class CursosLiberadosTest {
 
     @Test
     void testAddInvalido() {
-        // Testa a branch de exceção do 'add()'
         CursosLiberados cursos = CursosLiberados.of(5);
         assertThrows(IllegalArgumentException.class, () -> cursos.add(-1));
     }
 
     @Test
     void testHashCodeEToString() {
-        // Testa as linhas vermelhas de hashCode() e toString()
         CursosLiberados cursos = CursosLiberados.of(10);
         assertNotNull(cursos.hashCode());
         assertEquals("10", cursos.toString());
@@ -54,7 +49,6 @@ class CursosLiberadosTest {
 
     @Test
     void testEqualsEdgeCases() {
-        // Testa os caminhos amarelos (branches) do 'equals()'
         CursosLiberados cursos = CursosLiberados.of(3);
         assertTrue(cursos.equals(CursosLiberados.of(3)));
         assertFalse(cursos.equals(null));
@@ -65,8 +59,6 @@ class CursosLiberadosTest {
     @Test
     void testEqualsComMesmaInstancia() {
         CursosLiberados cursos = CursosLiberados.of(3);
-        
-        // Testa a branch 'this == o'
         assertTrue(cursos.equals(cursos)); 
     }
 }

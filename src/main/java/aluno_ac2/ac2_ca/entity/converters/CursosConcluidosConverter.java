@@ -9,13 +9,11 @@ public class CursosConcluidosConverter implements AttributeConverter<CursosConcl
 
     @Override
     public Integer convertToDatabaseColumn(CursosConcluidos cursosConcluidos) {
-        // Pega o objeto 'CursosConcluidos' e extrai o 'int' de dentro dele
         return (cursosConcluidos == null) ? null : cursosConcluidos.value();
     }
 
     @Override
     public CursosConcluidos convertToEntityAttribute(Integer dbData) {
-        // Pega o 'int' do banco e usa para criar um objeto 'CursosConcluidos'
         return (dbData == null) ? null : CursosConcluidos.of(dbData);
     }
 }
